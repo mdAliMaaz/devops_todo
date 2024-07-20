@@ -7,30 +7,32 @@ const TodoList = () => {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/todos')
-      .then((response) => {
-        setTodos(response.data);
-      });
+    axios.get("https://devops-todo.onrender.com/todos").then((response) => {
+      setTodos(response.data);
+    });
   }, []);
 
   const addTodo = () => {
-    axios.post('http://localhost:5000/todos', { text })
+    axios
+      .post("https://devops-todo.onrender.com/todos", { text })
       .then((response) => {
         setTodos([...todos, response.data]);
-        setText('');
+        setText("");
       });
   };
 
   const deleteTodo = (id) => {
-    axios.delete(`http://localhost:5000/todos/${id}`)
-      .then(() => {
-        setTodos(todos.filter((todo) => todo._id !== id));
-      });
+    axios.delete(`https://devops-todo.onrender.com/todos/${id}`).then(() => {
+      setTodos(todos.filter((todo) => todo._id !== id));
+    });
   };
 
   const toggleTodo = (id) => {
     const todo = todos.find((todo) => todo._id === id);
-    axios.patch(`http://localhost:5000/todos/${id}`, { completed: !todo.completed })
+    axios
+      .patch(`https://devops-todo.onrender.com/todos/${id}`, {
+        completed: !todo.completed,
+      })
       .then((response) => {
         setTodos(todos.map((todo) => (todo._id === id ? response.data : todo)));
       });
@@ -60,3 +62,6 @@ const TodoList = () => {
 };
 
 export default TodoList;
+
+
+

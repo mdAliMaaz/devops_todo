@@ -16,16 +16,16 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('MongoDB connected'))
 .catch((err) => console.error(err));
 
-app.use('/todos', require('./routes/todos'));
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname,"..", "/frontend/dist")));
+app.use("/todos", require("./routes/todos"));
 
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-	});
-}
+app.use(express.static(path.join(__dirname, "..", "/frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+console.log(process.env.MONGO_URI);
