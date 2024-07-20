@@ -3,7 +3,7 @@ name: Build and Deploy to Render
 on:
   push:
     branches:
-      - main
+      - development
 
 jobs:
   build:
@@ -27,5 +27,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: your-dockerhub-username/your-repo-name:latest
+          tags: maaz2907/devops-todo:latest
 
