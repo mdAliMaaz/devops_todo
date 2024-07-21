@@ -8,7 +8,7 @@ const TodoList = () => {
 
   useEffect(() => {
     axios
-      .get("https://devops-todo-production.onrender.com/todos")
+      .get("https://devops-todo.onrender.com/todos")
       .then((response) => {
         setTodos(response.data);
       });
@@ -16,7 +16,7 @@ const TodoList = () => {
 
   const addTodo = () => {
     axios
-      .post("https://devops-todo-production.onrender.com/todos", { text })
+      .post("https://devops-todo.onrender.com/todos", { text })
       .then((response) => {
         setTodos([...todos, response.data]);
         setText("");
@@ -25,7 +25,7 @@ const TodoList = () => {
 
   const deleteTodo = (id) => {
     axios
-      .delete(`https://devops-todo-production.onrender.com/todos/${id}`)
+      .delete(`https://devops-todo.onrender.com/todos/${id}`)
       .then(() => {
         setTodos(todos.filter((todo) => todo._id !== id));
       });
@@ -34,7 +34,7 @@ const TodoList = () => {
   const toggleTodo = (id) => {
     const todo = todos.find((todo) => todo._id === id);
     axios
-      .patch(`https://devops-todo-production.onrender.com/todos/${id}`, {
+      .patch(`https://devops-todo.onrender.com/todos/${id}`, {
         completed: !todo.completed,
       })
       .then((response) => {
