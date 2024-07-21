@@ -45,7 +45,7 @@ jobs:
             -H "Authorization: Bearer $RENDER_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{
-              "serviceId": "srv-cqdvq0ogph6c73af5kfg",
+              "serviceId": "srv-cqe8v3g8fa8c73e24mug",
               "clearCache": false
             }' \
-            https://api.render.com/v1/services/srv-cqdvq0ogph6c73af5kfg/deploys
+            https://api.render.com/v1/services/srv-cqe8v3g8fa8c73e24mug/deploys
