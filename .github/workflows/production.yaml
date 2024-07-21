@@ -3,7 +3,10 @@ name: Build and Deploy to Render
 on:
   push:
     branches:
-      - development
+      - production
+  pull_request:
+    branches:
+      - production
 
 jobs:
   build:
@@ -45,7 +48,7 @@ jobs:
             -H "Authorization: Bearer $RENDER_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{
-              "serviceId": "srv-cqdvq0ogph6c73af5kfg",
+              "serviceId": "srv-cqe967hu0jms7396tcpg",
               "clearCache": false
             }' \
-            https://api.render.com/v1/services/srv-cqdvq0ogph6c73af5kfg/deploys
+            https://api.render.com/v1/services/srv-cqe967hu0jms7396tcpg/deploys

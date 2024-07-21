@@ -25,7 +25,7 @@ EXPOSE 5000
 
 # Define environment variable
 ENV NODE_ENV=production
-ENV MONGO_URI=mongodb+srv://maaz:28582858@cluster0.6c5n5cq.mongodb.net/todo_development
+ENV MONGO_URI=mongodb+srv://maaz:28582858@cluster0.6c5n5cq.mongodb.net/todo_prod
 ENV PORT=5000
 
 # Change to the backend directory
