@@ -7,14 +7,16 @@ const TodoList = () => {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    axios.get("https://devops-todo.onrender.com/todos").then((response) => {
-      setTodos(response.data);
-    });
+    axios
+      .get("https://devops-todo-production.onrender.com/todos")
+      .then((response) => {
+        setTodos(response.data);
+      });
   }, []);
 
   const addTodo = () => {
     axios
-      .post("https://devops-todo.onrender.com/todos", { text })
+      .post("https://devops-todo-production.onrender.com/todos", { text })
       .then((response) => {
         setTodos([...todos, response.data]);
         setText("");
@@ -22,15 +24,17 @@ const TodoList = () => {
   };
 
   const deleteTodo = (id) => {
-    axios.delete(`https://devops-todo.onrender.com/todos/${id}`).then(() => {
-      setTodos(todos.filter((todo) => todo._id !== id));
-    });
+    axios
+      .delete(`https://devops-todo-production.onrender.com/todos/${id}`)
+      .then(() => {
+        setTodos(todos.filter((todo) => todo._id !== id));
+      });
   };
 
   const toggleTodo = (id) => {
     const todo = todos.find((todo) => todo._id === id);
     axios
-      .patch(`https://devops-todo.onrender.com/todos/${id}`, {
+      .patch(`https://devops-todo-production.onrender.com/todos/${id}`, {
         completed: !todo.completed,
       })
       .then((response) => {
@@ -40,7 +44,7 @@ const TodoList = () => {
 
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1>Todo List for Production</h1>
       <div className="todo-input">
         <input
           type="text"
