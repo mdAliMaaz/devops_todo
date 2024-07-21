@@ -29,20 +29,23 @@ jobs:
           push: true
           tags: maaz2907/devops-todo:latest
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Deploy to Render
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-            curl -X POST \
-              -H "Authorization: Bearer $RENDER_API_KEY" \
-              -H "Content-Type: application/json" \
-              -d '{
-                "serviceId": "srv-cqdvq0ogph6c73af5kfg",
-                "clearCache": false
-              }' \
-              https://api.render.com/v1/services/srv-cqdvq0ogph6c73af5kfg/deploys
-
-     
-
-    
-        
+          curl -X POST \
+            -H "Authorization: Bearer $RENDER_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "serviceId": "srv-cqdvq0ogph6c73af5kfg",
+              "clearCache": false
+            }' \
+            https://api.render.com/v1/services/srv-cqdvq0ogph6c73af5kfg/deploys
