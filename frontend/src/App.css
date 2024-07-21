@@ -1,6 +1,10 @@
 body {
   font-family: Arial, sans-serif;
+<<<<<<< HEAD
   background-color: white;
+=======
+  background-color: red;
+>>>>>>> ac0c2398bdc9865cc88347c6bb6ba86167322524
   display: flex;
   justify-content: center;
   align-items: center;

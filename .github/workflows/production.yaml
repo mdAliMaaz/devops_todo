@@ -51,4 +51,8 @@ jobs:
               "serviceId": "srv-cqe967hu0jms7396tcpg",
               "clearCache": false
             }' \
+<<<<<<< HEAD
             https://api.render.com/v1/services/srv-cqe967hu0jms7396tcpg/deploys
+=======
+            https://api.render.com/v1/services/srv-cqe967hu0jms7396tcpg/deploys
+>>>>>>> ac0c2398bdc9865cc88347c6bb6ba86167322524

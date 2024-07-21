@@ -23,10 +23,14 @@ RUN npm run build --prefix frontend
 # Expose the port the app runs on
 EXPOSE 5000
 
+<<<<<<< HEAD
 # Define environment variable
 ENV NODE_ENV=production
 ENV MONGO_URI=mongodb+srv://maaz:28582858@cluster0.6c5n5cq.mongodb.net/todo_prod
 ENV PORT=5000
+=======
+
+>>>>>>> ac0c2398bdc9865cc88347c6bb6ba86167322524
 
 # Change to the backend directory
 WORKDIR /usr/src/app/backend
